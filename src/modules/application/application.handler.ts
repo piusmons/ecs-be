@@ -17,7 +17,7 @@ export const createApplicationHandler = (
             const data = await applicationService.healthChecker();
 
             return reply.send(data);
-        },
+        }, //sd
     };
 };
 
