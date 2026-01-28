@@ -6,7 +6,7 @@ export type ApplicationService = {
 
 export const createApplicationService = (): ApplicationService => ({
     healthChecker: async () => {
-        return "pong";
+        return "pongz";
     },
 });
 
