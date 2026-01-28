@@ -19,6 +19,9 @@ export const createMessageRepository = (
     return {
         ...repository,
         findUniqueOrFail: async (args) => {
+            if (!prisma) {
+                throw new Error("Database service unavailable.");
+            }
             const message = await prisma.message.findUnique(args);
 
             if (!message) {

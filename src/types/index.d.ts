@@ -6,7 +6,7 @@ import { Cradle } from "./di-container.type.js";
 declare module "fastify" {
     export interface FastifyInstance {
         config: EnvConfig;
-        prisma: PrismaClient;
+        prisma: PrismaClient | null;
         di: AwilixContainer<Cradle>;
     }
 }

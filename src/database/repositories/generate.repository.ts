@@ -38,6 +38,30 @@ export const generateRepository = <T extends Model>(
 ): BaseRepository<Uncapitalize<T>> => {
     const modelInstanceName = uncapitalizeString(model);
 
+    if (!prisma) {
+        // Return a dummy object with the correct type shape
+        // but functions that warn/error instead of crashing.
+        const stub = () => {
+            throw new Error(
+                `Database connection not available for ${model} repository.`
+            );
+        };
+
+        return {
+            create: stub as any,
+            createMany: stub as any,
+            findMany: async () => [], // Returning empty array is usually safer for UI
+            count: async () => 0,
+            findUnique: async () => null,
+            findFirst: async () => null,
+            update: stub as any,
+            upsert: stub as any,
+            updateMany: stub as any,
+            delete: stub as any,
+            deleteMany: stub as any,
+        } as unknown as BaseRepository<Uncapitalize<T>>;
+    }
+
     const delegate = prisma[modelInstanceName];
 
     const create = delegate["create"] as (typeof delegate)["create"];

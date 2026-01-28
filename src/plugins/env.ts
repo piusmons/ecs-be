@@ -19,7 +19,6 @@ const configureEnv = async (fastify: FastifyInstance) => {
             .prop("HOST", S.string().default("0.0.0.0"))
             .required([
                 "NODE_ENV",
-                "DATABASE_URL",
                 "APPLICATION_SECRET",
                 "APPLICATION_URL",
                 "PORT",
