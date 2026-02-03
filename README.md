@@ -19,7 +19,7 @@ Welcome to the Lumitech Node.js Fastify Template. This template provides a well-
 - [Prisma](https://www.prisma.io/docs/getting-started) - database ORM;
 - [Vitest](https://vitest.dev/) - testing framework.
 
-## 📌 Getting Started
+## 📌 Getting Startedasdasdas
 
 ### 🚀 Project Launch
 1. `npm install` - install the dependencies locally;
